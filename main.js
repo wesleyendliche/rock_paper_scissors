@@ -1,17 +1,25 @@
-//create array with 3 possible values
-const gameChoices = ["ROCK", "PAPER", "SCISSORS"];
-
 function getComputerChoice() {
+    //create array with 3 possible values
+    const gameChoices = ["ROCK", "PAPER", "SCISSORS"];
+
     //return one of them randomly
     return gameChoices[Math.floor(Math.random() * gameChoices.length)];
+}
+
+function game() {
+    for (let i = 0; i < 3; i++) {
+        //get player input and turn it automatically to Upper Case
+        let playerSelection = prompt("Choose ROCK, PAPER OR SCISSORS").toUpperCase();
+        let computerSelection = getComputerChoice();
+        console.log(playerSelection + " x " + computerSelection);
+        return playRound(playerSelection, computerSelection);
+    }
 }
 
 //ROCK > SCISSORS //ROCK < PAPER //ROCK = ROCK
 //PAPER > ROCK //PAPER < SCISSORS //PAPER = PAPER
 //SCISSORS > PAPER //SCISSORS < ROCK //SCISSORS = SCISSORS
 function playRound(playerSelection, computerSelection) {
-    avoidMispelling();
-
     if(playerSelection == "ROCK" && computerSelection == "PAPER") {
         return "The computer chose PAPER. You lost!";
     } else if(playerSelection == "ROCK" && computerSelection == "SCISSORS") {
@@ -24,27 +32,9 @@ function playRound(playerSelection, computerSelection) {
         return "The computer chose PAPER. You won!";
     } else if(playerSelection == "SCISSORS" && computerSelection == "ROCK") {
         return "The computer chose ROCK. You lost!";
-    } else {
+    } else if(playerSelection == computerSelection) {
         return "It's a tie!";
-    } 
-}
-
-function avoidMispelling() {
-    if(playerSelection != gameChoices) {
-        return "Please, enter a valid option";
     } else {
-        playRound();
-    }
-}
-
-//get player input and turn it automatically to Upper Case
-const playerSelection = prompt("Choose ROCK, PAPER OR SCISSORS").toUpperCase();
-const computerSelection = getComputerChoice();
-console.log(playerSelection + " x " + computerSelection);
-console.log(playRound(playerSelection, computerSelection))
-
-function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound();
+        return "Please, enter a valid option";
     }
 }
