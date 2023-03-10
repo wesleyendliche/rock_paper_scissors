@@ -7,7 +7,7 @@ function getComputerChoice() {
 }
 
 function game() {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
     //get player input and turn it automatically to Upper Case
     let playerSelection = prompt("Choose ROCK, PAPER OR SCISSORS").toUpperCase();
 
@@ -17,9 +17,6 @@ function game() {
     }
 }
 
-//ROCK > SCISSORS //ROCK < PAPER //ROCK = ROCK
-//PAPER > ROCK //PAPER < SCISSORS //PAPER = PAPER
-//SCISSORS > PAPER //SCISSORS < ROCK //SCISSORS = SCISSORS
 function playRound(playerSelection, computerSelection) {
     if(playerSelection == "ROCK" && computerSelection == "PAPER") {
         return "The computer chose PAPER. You lost!";
