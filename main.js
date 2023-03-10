@@ -7,12 +7,13 @@ function getComputerChoice() {
 }
 
 function game() {
-    for (let playerSelection = 0; playerSelection < 3; playerSelection++) {
-        //get player input and turn it automatically to Upper Case
-        let playerSelection = prompt("Choose ROCK, PAPER OR SCISSORS").toUpperCase();
-        let computerSelection = getComputerChoice();
-        console.log(playerSelection + " x " + computerSelection);
-        return playRound(playerSelection, computerSelection);
+    for (let i = 0; i < 3; i++) {
+    //get player input and turn it automatically to Upper Case
+    let playerSelection = prompt("Choose ROCK, PAPER OR SCISSORS").toUpperCase();
+
+    let computerSelection = getComputerChoice();
+    console.log(playerSelection + " x " + computerSelection);
+    console.log(playRound(playerSelection, computerSelection));   
     }
 }
 
